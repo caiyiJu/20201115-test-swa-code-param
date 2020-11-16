@@ -7,6 +7,17 @@
               "route": "/api/callback"
           },
           "backendUri": "http://localhost/api/HttpTrigger?c={request.querystring.code}"
-      }
+      },
+
+      "proxy2": {
+        "matchCondition": {
+            "methods": [ "GET" ],
+            "route": "/api/foo"
+        },
+        "responseOverrides": {
+            "response.body": "Hello, foo",
+            "response.headers.Content-Type": "text/plain"
+        }
+    }
   }
 }
