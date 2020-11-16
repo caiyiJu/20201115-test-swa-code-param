@@ -6,7 +6,7 @@
               "methods": [ "GET" ],
               "route": "/api/callback"
           },
-          "backendUri": "http://localhost/api/HttpTrigger?_code={request.querystring.code}"
+          "backendUri": "http://localhost/api/HttpTrigger?c={request.querystring.code}"
       }
   }
 }
