@@ -1,23 +1,15 @@
 {
   "$schema": "http://json.schemastore.org/proxies",
   "proxies": {
-      "proxy1": {
+      "callback": {
           "matchCondition": {
               "methods": [ "GET" ],
               "route": "/api/callback"
           },
-          "backendUri": "http://localhost/api/HttpTrigger?c={request.querystring.code}"
-      },
-
-      "proxy2": {
-        "matchCondition": {
-            "methods": [ "GET" ],
-            "route": "/api/foo"
-        },
-        "responseOverrides": {
-            "response.body": "Hello, foo",
-            "response.headers.Content-Type": "text/plain"
-        }
-    }
+          "backendUri": "http://localhost/api/HttpTrigger?_code={request.querystring.code}",
+          "requestOverrides": {
+            "backend.request.querystring.code": ""
+          }
+      }
   }
 }
